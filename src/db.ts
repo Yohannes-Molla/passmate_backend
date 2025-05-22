@@ -16,11 +16,11 @@ import {
 
 export const AppDataSource = new DataSource({
     type: "mysql",
-    host: process.env.DB_HOST || "localhost",
+    host: process.env.DB_HOST || "mysql.railway.internal",
     port: parseInt(process.env.DB_PORT || "3306"),
     username: process.env.DB_USERNAME || "root",
-    password: process.env.DB_PASSWORD || "admin123",
-    database: process.env.DB_NAME || "passmate_db",
+    password: process.env.DB_PASSWORD || "EEEVBGXhOEvqmYXljodWfYPGFbvgwWpk",
+    database: process.env.DB_NAME || "railway",
     entities: [
         User,
         Question,
