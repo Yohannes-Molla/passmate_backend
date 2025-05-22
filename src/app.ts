@@ -8,7 +8,6 @@ import * as dotenv from 'dotenv';
 // Import routes
 import apiRoutes from './routes';
 
-// Load environment variables
 dotenv.config();
 
 const app: Express = express();
