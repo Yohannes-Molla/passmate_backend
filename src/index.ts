@@ -14,12 +14,12 @@ import {departmentRoutes} from "./routes/department.routes"
 // Load environment variables
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 
 // Middleware
 app.use(cors({
-    origin: 'http://192.168.100.3:8080',
+    origin: 'http://localhost:8080',
     credentials: true
 }));
 
