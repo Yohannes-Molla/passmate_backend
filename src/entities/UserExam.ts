@@ -6,33 +6,33 @@ import { Exam } from './Exam';
 @Entity('user_exams')
 export class UserExam {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @ManyToOne(() => User, user => user.exams)
     @JoinColumn({ name: 'userId' })
-    user: User;
+    user!: User;
 
     @Column()
-    userId: string;
+    userId!: string;
 
     @ManyToOne(() => Exam, exam => exam.userExams)
     @JoinColumn({ name: 'examId' })
-    exam: Exam;
+    exam!: Exam;
 
     @Column()
-    examId: string;
+    examId!: string;
 
     @Column({ type: 'float' })
-    score: number;
+    score!: number;
 
     @Column()
-    timeTaken: number;
+    timeTaken!: number;
 
     @CreateDateColumn()
-    takenAt: Date;
+    takenAt!: Date;
 
     @Column({ type: 'json' })
-    answers: {
+    answers!: {
         questionId: string;
         selectedOptionId: string;
         isCorrect: boolean;

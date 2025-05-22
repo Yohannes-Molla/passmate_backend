@@ -7,19 +7,19 @@ import { Department } from './Department';
 @Entity('exams')
 export class Exam {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @Column()
-    title: string;
+    title!: string;
 
     @Column({ type: 'text' })
-    description: string;
+    description!: string;
 
     @Column()
-    timeLimit: number;
+    timeLimit!: number;
 
     @Column()
-    totalQuestions: number;
+    totalQuestions!: number;
 
     @ManyToMany(() => Question)
     @JoinTable({
@@ -27,11 +27,11 @@ export class Exam {
         joinColumn: { name: 'examId', referencedColumnName: 'id' },
         inverseJoinColumn: { name: 'questionId', referencedColumnName: 'id' }
     })
-    questions: Question[];
+    questions!: Question[];
 
     @OneToMany(() => UserExam, userExam => userExam.exam)
-    userExams: UserExam[];
+    userExams!: UserExam[];
 
     @ManyToOne(() => Department, department => department.exams, { eager: true })
-    department: Department;
+    department!: Department;
 }

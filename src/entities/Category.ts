@@ -12,10 +12,10 @@ import { Question } from './Question';
 @Entity('categories')
 export class Category {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @Column()
-    name: string;
+    name!: string;
 
     @ManyToOne(() => Department, dept => dept.categories, {
         nullable: false,
@@ -23,13 +23,13 @@ export class Category {
         eager: false,
     })
     @JoinColumn({ name: 'departmentId' })
-    department: Department;
+    department!: Department;
 
     @Column('uuid')
-    departmentId: string;
+    departmentId!: string;
 
     @OneToMany(() => Question, question => question.category, {
         cascade: true,
     })
-    questions: Question[];
+    questions!: Question[];
 }

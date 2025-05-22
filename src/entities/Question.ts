@@ -7,13 +7,13 @@ import { Category } from './Category';
 @Entity('questions')
 export class Question {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @Column({ type: 'text' })
-    text: string;
+    text!: string;
 
     @Column('uuid', {nullable: true})
-    categoryId: string;
+    categoryId!: string;
 
     @ManyToOne(() => Category, cat => cat.questions, {
         nullable: false,
@@ -21,24 +21,24 @@ export class Question {
         onDelete: 'SET NULL',
     })
     @JoinColumn({ name: 'categoryId' })
-    category: Category;
+    category!: Category;
 
     @Column({
         type: 'enum',
         enum: ['easy', 'medium', 'hard'],
         default: 'medium'
     })
-    difficulty: 'easy' | 'medium' | 'hard';
+    difficulty!: 'easy' | 'medium' | 'hard';
 
     @Column({ type: 'text' })
-    explanation: string;
+    explanation!: string;
 
     @Column({nullable: true})
-    correctAnswerId: string;
+    correctAnswerId!: string;
 
     @OneToMany(() => Option, option => option.question, { cascade: true, eager: true })
-    options: Option[];
+    options!: Option[];
 
     @ManyToOne(() => Department, department => department.questions, { eager: true })
-    department: Department;
+    department!: Department;
 }

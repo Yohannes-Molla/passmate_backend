@@ -6,10 +6,10 @@ import {Category} from "./Category";
 @Entity('practices')
 export class Practice {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @Column({ type: 'json' })
-    settings: {
+    settings!: {
         categories: Category[];
         difficulty: 'easy' | 'medium' | 'hard' | 'mixed';
         questionCount: number;
@@ -22,5 +22,5 @@ export class Practice {
         joinColumn: { name: 'practiceId', referencedColumnName: 'id' },
         inverseJoinColumn: { name: 'questionId', referencedColumnName: 'id' }
     })
-    questions: Question[];
+    questions!: Question[];
 }

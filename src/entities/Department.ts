@@ -9,23 +9,23 @@ import {Category} from "./Category";
 @Entity('departments')
 export class Department {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @Column()
-    name: string;
+    name!: string;
 
     @OneToMany(() => User, user => user.department)
-    users: User[];
+    users!: User[];
 
     @OneToMany(() => Exam, exam => exam.department)
-    exams: Exam[];
+    exams!: Exam[];
 
     @OneToMany(() => Question, question => question.department)
-    questions: Question[];
+    questions!: Question[];
 
     @OneToMany(() => Category, category => category.department, {
         cascade: true,    // optionally auto-save new categories
         eager: true       // automatically load them
     })
-    categories: Category[];
+    categories!: Category[];
 }

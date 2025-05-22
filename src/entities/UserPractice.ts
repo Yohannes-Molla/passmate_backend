@@ -6,36 +6,36 @@ import { Practice } from './Practice';
 @Entity('user_practices')
 export class UserPractice {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @ManyToOne(() => User, user => user.practices)
     @JoinColumn({ name: 'userId' })
-    user: User;
+    user!: User;
 
     @Column()
-    userId: string;
+    userId!: string;
 
     @ManyToOne(() => Practice)
     @JoinColumn({ name: 'practiceId' })
-    practice: Practice;
+    practice!: Practice;
 
     @Column()
-    practiceId: string;
+    practiceId!: string;
 
     @CreateDateColumn()
-    date: Date;
+    date!: Date;
 
     @Column({ nullable: true })
-    score: number;
+    score!: number;
 
     @Column({ nullable: true })
-    totalQuestions: number;
+    totalQuestions!: number;
 
     @Column({ nullable: true })
-    timeTaken: number;
+    timeTaken!: number;
 
     @Column({ type: 'json', nullable: true })
-    questionStatuses: {
+    questionStatuses!: {
         questionId: string;
         correct: boolean;
     }[];

@@ -5,14 +5,14 @@ import { User } from './User';
 @Entity('user_stats')
 export class UserStats {
     @PrimaryColumn()
-    userId: string;
+    userId!: string;
 
     @OneToOne(() => User)
     @JoinColumn({ name: 'userId' })
-    user: User;
+    user!: User;
 
     @Column({ type: 'json' })
-    examStats: {
+    examStats!: {
         examId: string;
         attempts: number;
         bestScore: number;
@@ -21,7 +21,7 @@ export class UserStats {
     }[];
 
     @Column({ type: 'json' })
-    practiceStats: {
+    practiceStats!: {
         totalSessions: number;
         questionsAnswered: number;
         correctAnswers: number;
@@ -39,7 +39,7 @@ export class UserStats {
     };
 
     @Column({ type: 'json' })
-    overallProgress: {
+    overallProgress!: {
         totalExams: number;
         examsPassed: number;
         totalPractice: number;
@@ -47,39 +47,39 @@ export class UserStats {
     };
 
     @Column({ type: 'json' })
-    strengths: {
+    strengths!: {
         category: string;
         accuracy: number;
         questionsAttempted: number;
     }[];
 
     @Column({ type: 'json' })
-    weaknesses: {
+    weaknesses!: {
         category: string;
         accuracy: number;
         questionsAttempted: number;
     }[];
 
     @Column({ default: 0 })
-    completedPractice: number;
+    completedPractice!: number;
 
     @Column({ default: 0 })
-    completedExams: number;
+    completedExams!: number;
 
     @Column({ default: 0 })
-    correctAnswers: number;
+    correctAnswers!: number;
 
     @Column({ default: 0 })
-    totalAnswers: number;
+    totalAnswers!: number;
 
     @Column({ default: 0 })
-    streakDays: number;
+    streakDays!: number;
 
     @Column({ nullable: true, type: 'timestamp' })
     lastActivity: any;
 
     @Column({ type: 'json' })
-    answeredQuestions: {
+    answeredQuestions!: {
         questionId: string;
         selectedOptionId: string;
         isCorrect: boolean;

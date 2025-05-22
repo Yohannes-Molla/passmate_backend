@@ -7,58 +7,58 @@ import { Department } from './Department';
 @Entity('users')
 export class User {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id!: string;
 
     @Column({ unique: true })
-    email: string;
+    email!: string;
 
     @Column()
-    username: string;
+    username!: string;
 
     @Column()
-    firstName: string;
+    firstName!: string;
 
     @Column()
-    lastName: string;
+    lastName!: string;
 
     @Column({ select: false })
-    password: string;
+    password!: string;
 
     @Column({
         type: 'enum',
         enum: ['user', 'admin'],
         default: 'user'
     })
-    role: 'user' | 'admin';
+    role!: 'user' | 'admin';
 
     @CreateDateColumn()
-    createdAt: Date;
+    createdAt!: Date;
 
     @Column({ type: 'boolean', default: true })
-    subscriptionActive: boolean;
+    subscriptionActive!: boolean;
 
     @Column({
         type: 'enum',
         enum: ['free', 'premium', 'pro'],
         default: 'free'
     })
-    subscriptionPlan: 'free' | 'premium' | 'pro';
+    subscriptionPlan!: 'free' | 'premium' | 'pro';
 
     @Column({ nullable: true })
-    subscriptionExpiresAt: Date;
+    subscriptionExpiresAt!: Date;
 
     @Column({ nullable: true })
-    phoneNumber: string;
+    phoneNumber!: string;
 
     @Column({ nullable: true })
-    avatarUrl: string;
+    avatarUrl!: string;
 
     @OneToMany(() => UserExam, userExam => userExam.user)
-    exams: UserExam[];
+    exams!: UserExam[];
 
     @OneToMany(() => UserPractice, userPractice => userPractice.user)
-    practices: UserPractice[];
+    practices!: UserPractice[];
 
     @ManyToOne(() => Department, department => department.users, { eager: true, nullable: true })
-    department: Department | null;
+    department!: Department | null;
 }
