@@ -13,7 +13,7 @@ dotenv.config();
 const app: Express = express();
 
 // Get client URL from environment variables or use default
-const clientUrl = process.env.CLIENT_URL || 'http://192.168.100.3:8080';
+// const clientUrl = process.env.CLIENT_URL || 'http://localhost:8080';
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
@@ -24,11 +24,7 @@ app.use(morgan('dev')); // Logging
 // Parse JSON request bodies// Parse URL-encoded request bodies
 
 // Configure CORS
-app.use(cors({
-    origin: clientUrl,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 // API routes
 app.use('/api', apiRoutes);
