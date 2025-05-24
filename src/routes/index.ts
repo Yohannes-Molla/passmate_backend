@@ -5,7 +5,6 @@ import { userRoutes } from './user.routes';
 import { statsRoutes } from './stats.routes';
 import { practiceRoutes } from './practice.routes';
 import { questionsRoutes } from './questions.routes';
-import {telegramBotRoutes} from "./telegram.bot";
 import {departmentRoutes} from "./department.routes"
 
 const router = Router();
@@ -20,7 +19,6 @@ router.use('/user', userRoutes);
 router.use('/stats', statsRoutes);
 router.use('/practice', practiceRoutes);
 router.use('/questions', questionsRoutes);
-router.use('/telegram', telegramBotRoutes);
 router.use('/departments', departmentRoutes);
 
 export default router;

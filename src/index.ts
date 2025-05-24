@@ -8,13 +8,12 @@ import { userRoutes } from './routes/user.routes';
 import { statsRoutes } from './routes/stats.routes';
 import { practiceRoutes } from './routes/practice.routes';
 import { questionsRoutes } from './routes/questions.routes';
-import {telegramBotRoutes} from "./routes/telegram.bot";
 import {departmentRoutes} from "./routes/department.routes"
 
 // Load environment variables
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5001;
 
 
 // Middleware
@@ -34,7 +33,6 @@ app.use('/api/user', userRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/api/practice', practiceRoutes);
 app.use('/api/questions', questionsRoutes);
-app.use('/api/telegram', telegramBotRoutes);
 app.use('/api/departments', departmentRoutes);
 
 // ✅ Initialize DB and start server
