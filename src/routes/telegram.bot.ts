@@ -6,7 +6,7 @@ const router = Router();
 
 const BOT_TOKEN = '8028968557:AAFTyysuI2CmTOgeyLabxcjZyefMCXnDCPc';
 const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}`;
-const WEB_APP_URL = 'https://5aab-196-188-64-34.ngrok-free.app';
+const WEB_APP_URL = 'https://passmate-frontend.web.app/';
 
 router.post('/', async (req: Request, res: Response) => {
     const update = req.body;
