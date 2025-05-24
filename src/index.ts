@@ -9,6 +9,7 @@ import { statsRoutes } from './routes/stats.routes';
 import { practiceRoutes } from './routes/practice.routes';
 import { questionsRoutes } from './routes/questions.routes';
 import {departmentRoutes} from "./routes/department.routes"
+import { startTelegramBot } from "./services/telegram.bot";
 
 // Load environment variables
 dotenv.config();
@@ -41,6 +42,7 @@ AppDataSource.initialize()
         app.listen(PORT, () => {
             console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV} mode`);
         });
+        startTelegramBot();
     })
     .catch((error) => {
         console.error('Database connection error:', error);
