@@ -45,20 +45,10 @@ export const startTelegramBot = async () => {
                     await axios.post(`${TELEGRAM_API}/setChatMenuButton`, {
                         menu_button: {
                             type: 'web_app',
-                            text: '🚀 Launch Passmate',
+                            text: 'Launch Passmate 🚀',
                             web_app: {
                                 url: WEB_APP_URL // Replace with your app URL
                             }
-                        }
-                    });
-
-                    await axios.post(`${TELEGRAM_API}/sendMessage`, {
-                        chat_id: message.chat.id,
-                        text: '👋 Welcome! Tap the button below to open the PWA:',
-                        reply_markup: {
-                            inline_keyboard: [
-                                [{ text: '🚀 Open App', web_app: { url: WEB_APP_URL } }]
-                            ]
                         }
                     });
                 }
